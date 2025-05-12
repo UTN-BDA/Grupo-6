@@ -1,0 +1,117 @@
+@startuml Diagrama de cine
+
+class Model {
+ clase de SQLAlchemy
+}
+
+class AuditMixin {
+    - created_at: datetime
+    - updated_at: datetime
+    - created_by: int
+    - updated_by: int
+}
+
+class SoftDeleteMixin {
+    - deleted_at: datetime
+}
+
+class User {
+    - username: str
+    - email: str
+    - password: str
+}
+
+class Role {
+    - name: str
+    - description: str
+}
+
+class UserData {
+    - name: str
+    - firstname: str
+    - lastname: str
+    - phone: str
+    - address: str
+    - city: str
+    - country: str
+}
+
+class Profile {
+    - name: str
+}
+
+class UserRoles {
+
+}
+
+class Movie {
+    - name
+    - director
+    - year
+    - start_date
+    - final_date
+    - duration
+    - description
+    - genre
+    - classification
+    - cast
+    - language
+}
+
+class Ticket {
+    - movie
+    - price
+    - date
+    - hour
+}
+
+class Room {
+    - name
+    - number
+    - seats_number 
+}
+
+class Feature {
+    - date_from
+    - date_to
+}
+
+'Relaciones
+UserData "1" --- "1" User
+UserData "n" --- "1" Profile
+User "n" --- "1" UserRoles
+Role "n" --- "1" UserRoles
+
+User --|> AuditMixin
+Profile --|> AuditMixin
+UserData --|> AuditMixin
+
+User --|> SoftDeleteMixin
+Profile --|> SoftDeleteMixin
+UserData --|> SoftDeleteMixin
+
+User --|> Model
+Profile --|> Model
+UserData --|> Model
+Profile --|> Model
+
+Room --|> Model
+Movie --|> Model
+Ticket --|> Model
+Feature --|> Model
+
+Room --|> Feature
+Movie --|> Feature
+Ticket --|> Feature
+
+'Room ---|> AuditMixin
+'Movie ---|> AuditMixin
+'Ticket ---|> AuditMixin
+'Feature ---|> AuditMixin
+
+'Room --|> SoftDeleteMixin
+'Movie --|> SoftDeleteMixin
+'Ticket --|> SoftDeleteMixin
+'Feature --|> SoftDeleteMixin
+
+@enduml
