@@ -2,6 +2,9 @@ param (
     [string]$VAR_CONTEXT = "development"
 )
 
+# activar entorno virtual
+. .\venv\Scripts\Activate.ps1
+
 if ($VAR_CONTEXT -eq "production") {
     $VAR_CONTEXT = "production"
 } elseif ($VAR_CONTEXT -eq "testing") {

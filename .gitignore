@@ -1,4 +1,5 @@
 migrations/
+alembic.ini
 
 # Cache
 __pycache__/
