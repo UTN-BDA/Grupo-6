@@ -1,3 +1,6 @@
+POSTGRES_PASSWORD = 123456789
+POSTGRES_DB = cine
+POSTGRES_USER = postgres
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 SQLALCHEMY_RECORD_QUERIES = True
 DEV_DATABASE_URI='postgresql+psycopg2://usuario:password@localhost:5432/devcine'

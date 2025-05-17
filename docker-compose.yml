@@ -1,0 +1,41 @@
+version: "3.8"
+
+services:
+  cine:
+    build:
+      dockerfile: Dockerfile.gunicorn
+    container_name: cine_app
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
+    depends_on:
+      - db
+    networks:
+      - mired
+
+  db:
+    image: postgres:16.2-bullseye
+    restart: always
+    environment:
+        - POSTGRES_USER=${POSTGRES_USER}
+        - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+        - POSTGRES_DB=${POSTGRES_DB}
+    ports:
+        - 5433:5432
+    networks:
+          - mired
+
+  app:
+    build: 
+      dockerfile: Dockerfile.gunicorn
+    depends_on:
+      - db
+    environment:
+      - FLASK_CONTEXT=production
+      - DATABASE_URL=${PROD_DATABASE_URI} 
+    command: bash
+
+networks:
+    mired:
+        external: true
