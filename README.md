@@ -13,21 +13,21 @@ Virtualización: docker
 ### Instrucciones para correr la aplicación
 1. Clonar el repositorio
 2. (Opcional) Crear un entorno virtual y activarlo con:
-    ```
-    python -m ven ven
-    venv/Scripts/activate
-    ```
+```
+python -m ven ven
+venv/Scripts/activate
+```
 3. Instalar las dependencias necesarias
-    ```
-    pip install -r requirements.txt
-    ```
+```
+pip install -r requirements.txt
+```
 4. Crear un archivo .env usando el arhcivo env-example como ejemplo. Modificar el puerto inclusive de ser necesario.
 
 #### Para los contenedores
 5. Construir y crear los servicios
-    ```
-    docker-compose up --build
-    ```
+```
+docker-compose up --build
+```
 6. Ejecutar los contenedores de fondo
 ```
 docker-compose up -d
