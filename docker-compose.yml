@@ -23,8 +23,10 @@ services:
         - POSTGRES_DB=${POSTGRES_DB}
     ports:
         - 5433:5432
+    volumes:
+        - postgres_data:/var/lib/postgresql/data
     networks:
-          - mired
+        - mired
 
   app:
     build: 
@@ -34,8 +36,10 @@ services:
     environment:
       - FLASK_CONTEXT=production
       - DATABASE_URL=${PROD_DATABASE_URI} 
-    command: bash
 
 networks:
     mired:
         external: true
+
+volumes:
+  postgres_data:

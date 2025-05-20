@@ -13,4 +13,5 @@ __pycache__/
 env/
 venv/
 ENV/
+activate-venv.ps1
 
