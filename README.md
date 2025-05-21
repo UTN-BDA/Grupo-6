@@ -50,6 +50,17 @@ alembic upgrade head
 ```
 #### Si todos los pasos fueron ejecutados exitosamente, la aplicación debería estar lista para ingresar datos en la db y funcionar.
 
+#### (Opcional) Para ingresar registros falsos a la db
+
+11. Poner el entorno en modo producción:
+```
+$Env:FLASK_CONTEXT = "production"
+```
+13. Ejecutar el script load_all() desde la raíz del repositorio:
+```
+python scripts/load_all.py
+```
+
 ## Integrantes
 - [@ItsCaaam](https://www.github.com/itscaaam) Barrera Camila
 - [@ivanjcs](https://www.github.com/ivanjcs) Castro Ivan
