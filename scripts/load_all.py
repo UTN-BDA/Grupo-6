@@ -13,10 +13,10 @@ from scripts import (
 )
 
 if __name__ == '__main__':
-    #generate_movies.run()
-    #generate_rooms.run()
-    #generate_feature.run()
-    #generate_ticket.run()
-    #generate_profile.run(),
-    #generate_roles.run(),
+    generate_movies.run()
+    generate_rooms.run()
+    generate_feature.run()
+    generate_ticket.run()
+    generate_profile.run(),
+    generate_roles.run(),
     generate_users.run()
