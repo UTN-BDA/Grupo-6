@@ -32,18 +32,19 @@ docker-compose up --build
 ```
 docker-compose up -d
 ```
+7. Crear tres bases de datos llamadas "devcine", "prodcine" y "testcine".
 
 #### Para realizar las migraciones
-7. Inicializar las migraciones en la raíz del proyecto:
+8. Inicializar las migraciones en la raíz del proyecto:
 ```
 alembic init migrations
 ```
-8. En alembic.ini, si aparece la siguiente linea, comentarla:
+9. En alembic.ini, si aparece la siguiente linea, comentarla:
 ```
 sqlalchemy.url = sqlite:///example.db
 ```
-9. Modificar el archivo migrations/env.py en base al archivo env-migrations-example
-10. Crear una migración y aplicarla 
+10. Modificar el archivo migrations/env.py en base al archivo env-migrations-example
+11. Crear una migración y aplicarla 
 ```
 alembic revision --autogenerate -m "Primeras tablas”
 alembic upgrade head
@@ -52,7 +53,7 @@ alembic upgrade head
 
 #### (Opcional) Para ingresar registros falsos a la db
 
-11. Poner el entorno en modo producción:
+12. Poner el entorno en modo producción:
 ```
 $Env:FLASK_CONTEXT = "production"
 ```
