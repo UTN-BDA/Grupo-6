@@ -35,7 +35,7 @@ services:
       - db
     environment:
       - FLASK_CONTEXT=production
-      - DATABASE_URL=${PROD_DATABASE_URI} 
+      - SQLALCHEMY_DATABASE_URI=${PROD_DATABASE_URI} 
 
 networks:
     mired:
