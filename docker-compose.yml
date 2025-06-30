@@ -33,6 +33,8 @@ services:
       dockerfile: Dockerfile.gunicorn
     depends_on:
       - db
+    env_file:
+      - .env
     environment:
       - FLASK_CONTEXT=production
       - SQLALCHEMY_DATABASE_URI=${PROD_DATABASE_URI} 
