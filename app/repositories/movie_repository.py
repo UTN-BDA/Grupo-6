@@ -1,6 +1,7 @@
 from typing import List
 from app.models import Movie
 from app import db
+from sqlalchemy.exc import NoResultFound
 
 class MovieRepository:
     def save(self, movie: Movie) -> Movie:
@@ -39,7 +40,7 @@ class MovieRepository:
             return None
         try:
             return db.session.query(Movie).filter(Movie.id == id).one()
-        except:
+        except NoResultFound:
             return None
         
     def find_by_name(self, name: str):
