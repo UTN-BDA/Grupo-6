@@ -15,3 +15,7 @@ venv/
 ENV/
 activate-venv.ps1
 
+# Archivo personal Sol
+docker-compose.sol.yml
+
+
