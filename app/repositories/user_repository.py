@@ -2,6 +2,7 @@ from typing import List, Type
 from app.models import User
 from app import db
 from app.models.user_data import UserData
+from sqlalchemy.exc import NoResultFound
 
 class UserRepository:
     """
@@ -45,7 +46,7 @@ class UserRepository:
             return None
         try:
             return db.session.query(User).filter(User.id == id).one()
-        except:
+        except NoResultFound:
             return None
         
     def find_by_username(self, username: str):

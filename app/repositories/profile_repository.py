@@ -1,6 +1,7 @@
 from typing import List
 from app.models import Profile
 from app import db
+from sqlalchemy.exc import NoResultFound
 
 class ProfileRepository:
     
@@ -29,6 +30,6 @@ class ProfileRepository:
             return None
         try:
             return db.session.query(Profile).filter(Profile.id == id).one()
-        except:
+        except NoResultFound:
             return None
         

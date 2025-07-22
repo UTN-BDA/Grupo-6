@@ -1,6 +1,7 @@
 from typing import List
 from app.models import Room
 from app import db
+from sqlalchemy.exc import NoResultFound
 
 class RoomRepository:
 
@@ -31,7 +32,7 @@ class RoomRepository:
             return None
         try:
             return db.session.query(Room).filter(Room.id == id).one()
-        except:
+        except NoResultFound:
             return None
     
     def find_by_name(self, name: str):
