@@ -13,6 +13,8 @@ class Config(object):
     
     @staticmethod
     def init_app(app):
+        # Método incluido por si se necesita lógica de inicialización adicional en el futuro.
+        # Actualmente no realiza ninguna acción específica.
         pass
 
 

@@ -1,6 +1,7 @@
 from typing import List
 from app.models import Ticket
 from app import db
+from sqlalchemy.exc import NoResultFound
 
 class TicketRepository:
     def save(self, ticket: Ticket) -> Ticket:
@@ -32,7 +33,7 @@ class TicketRepository:
             return None
         try:
             return db.session.query(Ticket).filter(Ticket.id == id).one()
-        except:
+        except NoResultFound:
             return None
         
     

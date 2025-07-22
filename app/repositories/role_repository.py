@@ -1,6 +1,7 @@
 from typing import List
 from app.models import Role
 from app import db
+from sqlalchemy.exc import NoResultFound
 
 class RoleRepository:
     """
@@ -56,7 +57,7 @@ class RoleRepository:
             return None
         try:
             return db.session.query(Role).filter(Role.id == id).one()
-        except:
+        except NoResultFound:
             return None
 
     def find_by_name(self, name: str) -> Role:

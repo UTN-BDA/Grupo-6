@@ -1,6 +1,7 @@
 from typing import List
 from app.models import Feature
 from app import db
+from sqlalchemy.exc import NoResultFound
 
 class FeatureRepository:
     def save(self, feature: Feature) -> Feature:
@@ -30,7 +31,7 @@ class FeatureRepository:
             return None
         try:
             return db.session.query(Feature).filter(Feature.id == id).one()
-        except:
+        except NoResultFound:
             return None
         
     def find_by_name(self, name: str):
