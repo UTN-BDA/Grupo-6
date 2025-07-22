@@ -6,7 +6,6 @@ from sqlalchemy.exc import NoResultFound
 class TicketRepository:
     def save(self, ticket: Ticket) -> Ticket:
         db.session.add(ticket)
-        db.session.commit()
         return ticket
     
     def update(self, ticket: Ticket, id: int) -> Ticket:
@@ -16,17 +15,13 @@ class TicketRepository:
         entity.date = ticket.date
         entity.hour = ticket.hour
    
-        db.session.add(entity)
-        db.session.commit()
         return entity
     
     def delete(self, ticket: Ticket) -> None:
         db.session.delete(ticket)
-        db.session.commit()
 
     def all(self) -> List[Ticket]:
-        tickets = db.session.query(Ticket).all()
-        return tickets
+        return db.session.query(Ticket).all() 
     
     def find(self, id: int) -> Ticket:
         if id is None or id == 0:
